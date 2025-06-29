@@ -1,0 +1,53 @@
+version: "3"
+services:
+    app:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        container_name: qa-app
+        restart: unless-stopped
+        working_dir: /var/www/backend
+        volumes:
+            - ./backend:/var/www/backend
+        environment:
+            - DB_CONNECTION=mysql
+            - DB_HOST=db
+            - DB_PORT=3306
+            - DB_DATABASE=qa_app
+            - DB_USERNAME=qa_user
+            - DB_PASSWORD=qa_password
+        networks:
+            - qa-network
+
+    nginx:
+        image: nginx:alpine
+        container_name: qa-nginx
+        restart: unless-stopped
+        ports:
+            - "8000:80"
+        volumes:
+            - ./backend:/var/www/backend
+            - ./docker/nginx:/etc/nginx/conf.d
+        networks:
+            - qa-network
+
+    db:
+        image: mysql:8.0
+        container_name: qa-db
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: qa_app
+            MYSQL_USER: qa_user
+            MYSQL_PASSWORD: qa_password
+            MYSQL_ROOT_PASSWORD: root_password
+        volumes:
+            - dbdata:/var/lib/mysql
+        networks:
+            - qa-network
+
+networks:
+    qa-network:
+        driver: bridge
+
+volumes:
+    dbdata:

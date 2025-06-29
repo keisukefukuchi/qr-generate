@@ -1,0 +1,5 @@
+/public/hot
+/public/storage
+/storage/*.key
+/storage/app/public/qrcodes/*
+!/storage/app/public/qrcodes/.gitkeep 

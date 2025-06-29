@@ -1,0 +1,13 @@
+parameters:
+    level: 5
+    paths:
+        - app
+        - tests
+    ignoreErrors:
+        - '#Class Imagick not found\.#'
+        - '#Class ImagickDraw not found\.#'
+        - '#Class ImagickPixel not found\.#'
+        - '#Constant Imagick::COMPOSITE_COPYOPACITY not found\.#'
+        - '#Constant Imagick::COMPOSITE_OVER not found\.#'
+        - '#Constant Imagick::FILTER_LANCZOS not found\.#'
+        - '#Call to an undefined static method SimpleSoftwareIO\\QrCode\\Facades\\QrCode::format\(\)\.#' 
