@@ -2,6 +2,8 @@
 
 このアプリケーションは、Laravel フレームワークと SimpleSoftwareIO/QrCode パッケージを使用して、カスタマイズ可能な QR コードを生成する Web アプリケーションです。
 
+<img width="954" alt="スクリーンショット 2025-06-30 12 35 39" src="https://github.com/user-attachments/assets/415ea0dd-0957-4fbe-bfea-2d5288222a0b" />
+
 > [QR コードの仕組みについて詳しく知る](docs/qr-code-mechanism.md)
 
 ## アプリケーションの特徴
